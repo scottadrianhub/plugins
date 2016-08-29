@@ -52,21 +52,12 @@
                     "; } elseif($user_role === 'client' && $user_type[0] === 'professional'){
        
                             echo "<li class='user-result'><a href='/".$user_type[0]."s/".$user_value[3]."'>". get_wp_user_avatar($user_value[0], 96) . "</br>" .$decstatus. "</br>". $user_value[9] . " " . $user_value[4] . "</a>
-                        </li></br>
-                    ";
-                        }  elseif($user_role === 'business' && $user_type[0] === "professional" ){
+                            </li></br>";
+                        } elseif($user_role === 'business' && $user_type[0] === "professional" ){
                             
                         echo "<li class='user-result'><a href='/".$user_type[0]."s/".$user_value[3]."'>". get_wp_user_avatar($user_value[0], 96) . "</br>" .$decstatus. "</br>". $user_value[9] . " " . $user_value[4] . "</a>
                         </li></br>
-                    "; } elseif ($user_type[0] !== "business") {
-       
-                            echo "<li class='user-result'><a href='/".$user_type[0]."s/".$user_value[3]."'>". get_wp_user_avatar($user_value[0], 96) . "</br>" .$decstatus. "</br>". $user_value[9] . " " . $user_value[4] . "</a>
-                        </li></br>
-                    "; } elseif( $user_type[0] === 'business'){
-                            
-                             echo "<li class='user-result'><a href='/".$user_type[0]."es/".$user_value[3]."'>". get_wp_user_avatar($user_value[0], 96) . "</br>" .$decstatus. "</br>". $user_value[9] . " " . $user_value[4] . "</a>
-                        </li></br>";
-                        }
+                    "; }
                 }}} ?>
                 
             </ul>
@@ -76,12 +67,10 @@
 </div>
 
 <?php if(isset($_POST['typeahead'])){
-            echo '<script>';
-    
-                $rows = $od_user_search->get_user_modal_results($_POST['typeahead']);
-                
-echo '
-    jQuery( document ).ready(function(){$(\'.od-searchBoxWrap\').show();});   
-</script>';
+    echo '
+    <script>
+        
+        jQuery( document ).ready(function(){$(\'.od-searchBoxWrap\').show();});   
+    </script>';
 }
 ?>

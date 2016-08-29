@@ -9,7 +9,7 @@
  * @author Scott Adrian
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * MERCHANTABILITY FOR A PARTICULAR PURPOSE.
  *
  */
 
@@ -18,10 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function od_user_search(){
     
+    wp_enqueue_script( 'od-main',  '/wp-content/plugins/od-user-search/js/od-main.js', array( 'jquery' ), '1.0.0', true );
+        
+    wp_enqueue_script( 'typeahead', '/wp-content/plugins/od-user-search/js/typeahead.min.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_style( 'od-user-search', '/wp-content/plugins/od-user-search/css/od-user-search.css',false,'1.1','all');
+    
     require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/od-user-search-class.php');
-    
-    $od_user_search->ajax_search_enqueues();
-    
     require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/od-search-form.php');
 }
 
